@@ -46,7 +46,7 @@ def CIFAR10(flatten=True, split=[1.0, 0.0, 0.0]):
     return Dataset(Xs, ys, split=split)
 
 
-def CELEB(path='./img_align_celeba/'):
+def CELEB(path='/home/waleed/Downloads/img_align_celeba/'):
     """Attempt to load the files of the CELEB dataset.
 
     Requires the files already be downloaded and placed in the `dst` directory.

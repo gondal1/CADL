@@ -6,7 +6,7 @@ import tensorflow.examples.tutorials.mnist.input_data as input_data
 from .dataset_utils import *
 
 
-def MNIST(one_hot=True, split=[1.0, 0.0, 0.0]):
+def MNIST(one_hot=True, split=[1.0, 0.0, 0.0]):   #split=[1.0, 0.0, 0.0]
     """Returns the MNIST dataset.
 
     Returns

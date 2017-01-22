@@ -37,7 +37,7 @@ def build_gif(imgs, interval=0.1, dpi=72,
         The artist animation from matplotlib.  Likely not useful.
     """
     imgs = np.asarray(imgs)
-    h, w, *c = imgs[0].shape
+    h, w  = imgs[0].shape # there is no channel, originally h,w,c = imgs[0].shape
     fig, ax = plt.subplots(figsize=(np.round(w / dpi), np.round(h / dpi)))
     fig.subplots_adjust(bottom=0)
     fig.subplots_adjust(top=1)
@@ -53,7 +53,7 @@ def build_gif(imgs, interval=0.1, dpi=72,
             ax.imshow(x)], imgs))
 
     ani = animation.ArtistAnimation(
-        fig, axs, interval=interval*1000, repeat_delay=0, blit=True)
+        fig, axs, interval=interval*1000, repeat_delay=0, blit=False)
 
     if save_gif:
         ani.save(saveto, writer='imagemagick', dpi=dpi)

@@ -357,13 +357,13 @@ class Dataset(object):
             self.all_labels = None
 
         # Get splits
-        self.train_idxs = idxs[:round(split[0] * n_idxs)]
+        self.train_idxs = idxs[:int(round(split[0] * n_idxs))]
         self.valid_idxs = idxs[len(self.train_idxs):
-                               len(self.train_idxs) + round(split[1] * n_idxs)]
+                               len(self.train_idxs) + int(round(split[1] * n_idxs))]
         self.test_idxs = idxs[
             (len(self.valid_idxs) + len(self.train_idxs)):
             (len(self.valid_idxs) + len(self.train_idxs)) +
-             round(split[2] * n_idxs)]
+             int(round(split[2] * n_idxs))]
 
     @property
     def X(self):

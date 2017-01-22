@@ -400,18 +400,18 @@ def train_ds():
 
     gan = GAN(input_shape=[None] + crop_shape, n_features=10,
               n_latent=n_latent, rgb=True, debug=False)
-
+    d_vari, g_vari = [], []
     vars_d = [v for v in tf.trainable_variables()
               if v.name.startswith('discriminator')]
     print('Training discriminator variables:')
-    [print(v.name) for v in tf.trainable_variables()
+    [d_vari.append((v.name)) for v in tf.trainable_variables()
      if v.name.startswith('discriminator')]
-
+    print d_vari
     vars_g = [v for v in tf.trainable_variables()
               if v.name.startswith('generator')]
     print('Training generator variables:')
-    [print(v.name) for v in tf.trainable_variables()
-     if v.name.startswith('generator')]
+    #[print(v.name) for v in tf.trainable_variables()
+    # if v.name.startswith('generator')]
     zs = np.random.uniform(
         -1.0, 1.0, [4, n_latent]).astype(np.float32)
     zs = make_latent_manifold(zs, n_samples)
