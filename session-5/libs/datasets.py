@@ -3,7 +3,7 @@ Kadenze, Inc.
 Copyright Parag K. Mital, June 2016.
 """
 import tensorflow.examples.tutorials.mnist.input_data as input_data
-from .dataset_utils import *
+from dataset_utils import *
 
 
 def MNIST(one_hot=True, split=[1.0, 0.0, 0.0]):
@@ -46,7 +46,7 @@ def CIFAR10(flatten=True, split=[1.0, 0.0, 0.0]):
     return Dataset(Xs, ys, split=split)
 
 
-def CELEB(path='/home/waleed/Downloads/img_align_celeba/'):
+def CELEB(path='/home/wgondal/img_align_celeba/'):
     """Attempt to load the files of the CELEB dataset.
 
     Requires the files already be downloaded and placed in the `dst` directory.
@@ -73,7 +73,7 @@ def CELEB(path='/home/waleed/Downloads/img_align_celeba/'):
         fs = [os.path.join(path, f)
               for f in os.listdir(path) if f.endswith('.jpg')]
         if len(fs) < 202598:
-            print('It does not look like you have downloaded the entire ' +
+            print('Okay,It does not look like you have downloaded the entire ' +
                   'Celeb Dataset.\n' +
                   'Try downloading the dataset from the "Aligned and Cropped" ' +
                   'link located here (imgs/img_align_celeba.zip [1.34 GB]): ' +

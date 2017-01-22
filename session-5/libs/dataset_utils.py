@@ -9,8 +9,8 @@ import os
 import pickle
 import numpy as np
 import tensorflow as tf
-from . import dft
-from .utils import download_and_extract_tar
+import dft
+from utils import download_and_extract_tar
 
 
 def create_input_pipeline(files, batch_size, n_epochs, shape, crop_shape=None,

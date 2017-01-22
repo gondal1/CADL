@@ -6,8 +6,7 @@ import tensorflow as tf
 from tensorflow.python.ops import control_flow_ops
 
 
-def batch_norm(x, phase_train, name='bn', decay=0.9, reuse=None,
-               affine=True):
+def batch_norm(x, phase_train, name='bn', decay=0.9, reuse=None, affine=True):   #reuse:None
     """
     Batch normalization on convolutional maps.
     from: https://stackoverflow.com/questions/33949786/how-could-i-
@@ -28,14 +27,14 @@ def batch_norm(x, phase_train, name='bn', decay=0.9, reuse=None,
     normed
         batch-normalized maps
     """
-    with tf.variable_scope(name, reuse=reuse):
+    with tf.variable_scope(name, reuse=reuse):   #reuse=None
         shape = x.get_shape().as_list()
         beta = tf.get_variable(name='beta', shape=[shape[-1]],
                                initializer=tf.constant_initializer(0.0),
-                               trainable=True)
+                               trainable=True) #trainabe=True
         gamma = tf.get_variable(name='gamma', shape=[shape[-1]],
                                 initializer=tf.constant_initializer(1.0),
-                                trainable=affine)
+                                trainable=affine) #trainable=affine
         if len(shape) == 4:
             batch_mean, batch_var = tf.nn.moments(x, [0, 1, 2], name='moments')
         else:
